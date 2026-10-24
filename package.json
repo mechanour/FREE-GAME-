@@ -1,0 +1,13 @@
+{
+  "name": "neon-strike-arena",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A browser-first multiplayer FPS arena prototype",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "three": "^0.180.0",
+    "ws": "^8.18.3"
+  }
+}
