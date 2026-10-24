@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#070b12" />
+    <meta name="description" content="Join your friends in Neon Strike, a free-to-play multiplayer FPS arena." />
+    <title>NEON STRIKE // Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="game">
+      <canvas id="world" tabindex="0" aria-label="Game arena"></canvas>
+      <div class="vignette"></div>
+
+      <section id="lobby" class="lobby">
+        <div class="brand"><span class="brand-mark">N</span><span>NEON<span class="brand-light">STRIKE</span></span><span class="brand-tag">ARENA // 01</span></div>
+        <div class="lobby-card">
+          <p class="eyebrow"><span class="live-dot"></span> MULTIPLAYER COMBAT SIMULATOR</p>
+          <h1>DROP IN.<br /><span>LOCK ON.</span></h1>
+          <p class="lobby-copy">Squad up with friends. Own the arena.</p>
+          <label for="player-name">CALLSIGN</label>
+          <input id="player-name" maxlength="18" autocomplete="nickname" placeholder="Your callsign" value="Rookie" />
+          <div class="lobby-actions">
+            <button id="create-room" class="button button-primary"><span>CREATE MATCH</span><span>↗</span></button>
+            <div class="join-row">
+              <input id="room-code" maxlength="6" autocomplete="off" placeholder="ROOM CODE" aria-label="Room code" />
+              <button id="join-room" class="button button-secondary">JOIN</button>
+            </div>
+          </div>
+          <p id="lobby-error" class="error-message" role="status"></p>
+          <p class="lobby-note">UP TO 5 PLAYERS <span>•</span> FREE-FOR-ALL <span>•</span> NO DOWNLOAD</p>
+        </div>
+        <div class="lobby-footer"><span>SECTOR 07 // NIGHTFALL</span><span>BUILD 0.1.0</span></div>
+      </section>
+
+      <section id="hud" class="hud hidden" aria-label="Game heads-up display">
+        <header class="hud-top">
+          <div class="match-info"><span class="live-dot"></span><div><strong>FREE-FOR-ALL</strong><small>SECTOR 07 // NIGHTFALL</small></div></div>
+          <div class="room-chip"><small>ROOM</small><strong id="hud-room">------</strong><button id="copy-room" title="Copy room code" aria-label="Copy room code">▣</button></div>
+          <button id="leave-room" class="leave-button">LEAVE <span>×</span></button>
+        </header>
+        <div class="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+        <button id="mouse-start" class="mouse-start hidden">CLICK TO START<small>WASD MOVE · DRAG TO AIM · CLICK FIRE</small></button>
+        <div id="hitmarker" class="hitmarker">×</div>
+        <div class="feed" id="feed"></div>
+        <div class="bottom-hud">
+          <div class="health-panel"><div class="health-icon">+</div><div><span>VITALS</span><strong id="health">100</strong></div><div class="health-track"><i id="health-bar"></i></div></div>
+          <div class="match-hint" id="match-hint">WASD MOVE <span>·</span> MOUSE AIM <span>·</span> CLICK FIRE</div>
+          <div class="ammo-panel"><div><span>AMMO</span><strong id="ammo">30<span>/120</span></strong></div><div class="ammo-bars" id="ammo-bars"></div></div>
+        </div>
+        <div id="scoreboard" class="scoreboard hidden">
+          <div class="score-title"><span>OPERATORS</span><span id="player-count">0 / 8</span></div>
+          <div id="score-rows"></div>
+        </div>
+        <div id="touch-controls" class="touch-controls hidden">
+          <div id="move-stick" class="stick" aria-label="Movement joystick"><div class="stick-knob"></div><span>MOVE</span></div>
+          <div id="look-zone" class="look-zone" aria-label="Drag here to aim">DRAG TO AIM</div>
+          <button id="touch-fire" class="touch-fire">FIRE</button>
+          <button id="touch-reload" class="touch-reload">↻</button>
+        </div>
+      </section>
+      <div id="toast" class="toast" role="status"></div>
+    </main>
+    <script type="module" src="/client.js"></script>
+  </body>
+</html>
